@@ -1,0 +1,118 @@
+[MAIN]
+
+# A comma-separated list of package or module names from where C extensions may
+# be loaded. Extensions are loading into the active Python interpreter and may
+# run arbitrary code
+extension-pkg-whitelist=
+
+# Add files or directories to the blacklist. They should be base names, not
+# paths.
+ignore=CVS
+
+# Add files or directories matching the regex patterns to the blacklist. The
+# regex matches against base names, not paths.
+ignore-patterns=
+
+# Python code to execute, usually for sys.path manipulation such as
+# pygtk.require().
+init-hook="from pylint.config import find_default_config_files; import os, sys; sys.path.append(os.path.dirname(next(find_default_config_files())))"
+# Use multiple processes to speed up Pylint.
+jobs=1
+
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+load-plugins=
+
+# Pickle collected data for later comparisons.
+persistent=yes
+
+# Specify a configuration file.
+#rcfile=
+
+# Allow loading of arbitrary C extensions. Extensions are imported into the
+# active Python interpreter and may run arbitrary code.
+unsafe-load-any-extension=no
+
+
+[MESSAGES CONTROL]
+
+# Only show warnings with the listed confidence levels. Leave empty to show
+# all. Valid levels: HIGH, INFERENCE, INFERENCE_FAILURE, UNDEFINED
+confidence=
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifiers separated by comma (,) or put this
+# option multiple times (only on the command line, not in the configuration
+# file where it should appear only once).You can also use "--disable=all" to
+# disable everything first and then reenable specific checks. For example, if
+# you want to run only the similarities checker, you can use "--disable=all
+# --enable=similarities". If you want to run only the classes checker, but have
+# no Warning level messages displayed, use"--disable=all --enable=classes
+# --disable=W"
+disable=all
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where
+# it should appear only once). See also the "--disable" option for examples.
+
+
+
+#################################################################################
+#################################################################################
+#################################################################################
+# ADD PYLINT RULES HERE
+
+# enabled checks
+# please add more to this as comma-separated rule identifiers
+enable=W0611,W0707,W0702,R1709,C1803,R1703,R1726,R1719,E0213,E0704,C0206,C0200,C0209,W0401,W0102,E0711,C0112
+# link to rule pages
+# W0611 https://pylint.readthedocs.io/en/latest/user_guide/messages/warning/unused-import.html
+# W0707 https://pylint.pycqa.org/en/latest/user_guide/messages/warning/raise-missing-from.html
+# W0702 https://pylint.pycqa.org/en/latest/user_guide/messages/warning/bare-except.html
+# R1709 https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/simplify-boolean-expression.html
+# C1803 https://pylint.pycqa.org/en/latest/user_guide/messages/convention/use-implicit-booleaness-not-comparison.html
+# R1703 https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/simplifiable-if-statement.html
+# R1726 https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/simplifiable-condition.html
+# R1719 https://pylint.pycqa.org/en/latest/user_guide/messages/refactor/simplifiable-if-expression.html
+# E0213 https://pylint.readthedocs.io/en/stable/user_guide/messages/error/no-self-argument.html
+# E0704 https://pylint.pycqa.org/en/latest/user_guide/messages/error/misplaced-bare-raise.html
+# C0206 https://pylint.pycqa.org/en/latest/user_guide/messages/convention/consider-using-dict-items.html
+# C0501 https://pylint.pycqa.org/en/latest/user_guide/messages/convention/consider-using-any-or-all.html
+# C0200 https://pylint.pycqa.org/en/latest/user_guide/messages/convention/consider-using-enumerate.html
+# C0209 https://pylint.pycqa.org/en/latest/user_guide/messages/convention/consider-using-f-string.html
+# W0401 https://pylint.pycqa.org/en/latest/user_guide/messages/warning/wildcard-import.html
+# W0102 https://pylint.pycqa.org/en/latest/user_guide/messages/warning/dangerous-default-value.html
+# W9998 core.linters.emailstr_import_checker.EmailStrImportChecker
+# W9999 core.linters.boolean_none_checker.BooleanNoneChecker
+# W9997 core.linters.dict_get_rule.DictGetChecker (This is not used at the moment as it was leading to lot of issues and was not covering multiple cases.)
+# E0711 https://pylint.pycqa.org/en/latest/user_guide/messages/error/notimplemented-raised.html
+# C0112 Used when a class has no docstring. https://pylint.readthedocs.io/en/latest/user_guide/messages/convention/empty-docstring.html
+
+#################################################################################
+#################################################################################
+#################################################################################
+
+[REPORTS]
+
+# Python expression which should return a note less than 10 (10 is the highest
+# note). You have access to the variables errors warning, statement which
+# respectively contain the number of errors / warnings messages and the total
+# number of statements analyzed. This is used by the global evaluation report
+# (RP0004).
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+
+# Template used to display messages. This is a python new-style format string
+# used to format the message information. See doc for all details
+#msg-template=
+
+# Set the output format. Available formats are text, parseable, colorized, json
+# and msvs (visual studio).You can also give a reporter class, eg
+# mypackage.mymodule.MyReporterClass.
+output-format=text
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+# Activate the evaluation score.
+score=yes
