@@ -19,6 +19,7 @@ class TestDBRepository(BaseDBTestCase):
         Expected: a user is created in the database.
         """
         user = UserDomainModel(
+            id=1,
             email="test@email.com",
             password="securepassword",
             first_name="Test",
@@ -29,5 +30,5 @@ class TestDBRepository(BaseDBTestCase):
         created_user = self.db_repository.create(user=user)
 
         # Assertions
-        db_user = User.objects.get(email=created_user.email)
+        db_user = User.objects.get(id=created_user.id)
         self.assertIsNotNone(db_user)
