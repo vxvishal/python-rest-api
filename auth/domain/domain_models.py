@@ -9,3 +9,10 @@ class UserDomainModel(BaseModelV1):
     last_name: str
     email: str
     password: str
+
+
+class CreateAuthUserRequest(BaseModelV1):
+    first_name: str
+    last_name: str
+    email: str
+    password: str
